@@ -2,7 +2,6 @@ set clipboard=unnamedplus
 set wildmenu
 set path+=**
 set relativenumber
-nmap <F8> :TagbarToggle<CR>
 set nocompatible   " Disable vi-compatibility
 set t_Co=256
 
@@ -51,17 +50,20 @@ nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
 
+nmap <F8> :TagbarToggle<CR>
+
 nnoremap ; :
 "Show (partial) command in the status line
 set showcmd
 
 highlight Search cterm=underline
 
-set backupdir=~/.vim/cache/backup//
-set directory=~/.vim/cache/swap//
+set backupdir=~/.vim/cache/backup/
+set directory=~/.vim/cache/swap/
 
 filetype plugin on
 syntax on
+
 " Run PHPUnit tests
 map <Leader>t :!phpunit %<cr>
 au BufNewFile,BufRead *.sol set filetype=solidity
