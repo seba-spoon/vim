@@ -1,11 +1,20 @@
+" System clipboard
 set clipboard=unnamedplus
+
+" Dropdownmenu like autocomplete
 set wildmenu
+
+" Search also into subfolders 
 set path+=**
 set relativenumber
 set nocompatible   " Disable vi-compatibility
-set t_Co=256
 
-colorscheme molokai
+" Colors 
+let g:solarized_termcolors=256
+set t_Co=256
+colorscheme gruvbox
+set background=dark
+
 set showmode                    " always show what mode we're currently editing in
 set tags=tags
 
@@ -71,3 +80,15 @@ au BufNewFile,BufRead *.sol set filetype=solidity
 command SaveSess mksession! ~/.vim/session.vim
 command RestoreSess source ~/.vim/session.vim
 set sessionoptions-=options " do not save colorscheme etc
+
+" File browsing
+let g:netrw_banner=0
+let g:netrw_browse_split=4
+let g:netrw_altv=1
+let g:netrw_liststyle=3
+let g:netrw_list_hide=netrw_gitignore#Hide()
+let g:netrw_list_hide.=',\(^\|\ss\)\zs\.\S\+'
+
+" Javascript snippets
+nnoremap ,desc :-1read $HOME/.vim/snippets/describe.js<CR>f'a
+nnoremap ,it :-1read $HOME/.vim/snippets/it.js<CR>f'a
