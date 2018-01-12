@@ -53,19 +53,22 @@ let g:mapleader = ","
 " Fast saves
 nmap <leader>w :w!<cr>
 
+" Splits Navigation
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
+" Splits creation
+set splitbelow
+set splitright
 
-nmap <F8> :TagbarToggle<CR>
+nmap <F7> :TagbarToggle<CR>
 
 nnoremap ; :
 "Show (partial) command in the status line
 set showcmd
 
-highlight Search cterm=underline
 
 set backupdir=~/.vim/cache/backup/
 set directory=~/.vim/cache/swap/
@@ -77,6 +80,7 @@ syntax on
 map <Leader>t :!phpunit %<cr>
 au BufNewFile,BufRead *.sol set filetype=solidity
 
+" Custom commands 
 command SaveSess mksession! ~/.vim/session.vim
 command RestoreSess source ~/.vim/session.vim
 set sessionoptions-=options " do not save colorscheme etc
@@ -92,3 +96,42 @@ let g:netrw_list_hide.=',\(^\|\ss\)\zs\.\S\+'
 " Javascript snippets
 nnoremap ,desc :-1read $HOME/.vim/snippets/describe.js<CR>f'a
 nnoremap ,it :-1read $HOME/.vim/snippets/it.js<CR>f'a
+
+" Overriding colorscheme
+highlight Search cterm=underline
+highlight Normal guibg=NONE ctermbg=NONE " For transparent background terminal
+
+
+" Vundle plugin manager
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+"set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+
+" Autocompletion
+Plugin 'YouCompleteMe'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
