@@ -1,10 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/home/seb/dev/cookietv-react-native/Source/app/views'
-let g:netrw_dirhist_2='/home/seb/dev/cookietv-react-native/Source'
-let g:netrw_dirhist_3='/home/seb/dev/cookietv-react-native/Source/app'
-let g:netrw_dirhist_4='/home/seb/dev/cookietv-react-native/Source/app/views'
-let g:netrw_dirhist_5='/home/seb/dev/cookietv-react-native-2/Source/cookietv/android'
-let g:netrw_dirhist_6='/home/seb/dev/cookietv-react-native-2/Source/cookietv'
-let g:netrw_dirhist_7='/home/seb/dev/cookietv-react-native-2/Source'
-let g:netrw_dirhist_8='/home/seb/dev/cookietv-react-native-2'
+let g:netrw_dirhist_cnt =0

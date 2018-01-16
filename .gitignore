@@ -1,3 +1,5 @@
 cache/swap/*
 cache/backup/*
+!cache/swap
+!cache/backup
 .netrwhist

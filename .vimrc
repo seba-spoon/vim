@@ -1,3 +1,4 @@
+set encoding=utf-8
 " System clipboard
 set clipboard=unnamedplus
 
@@ -120,7 +121,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 
 " Autocompletion
-Plugin 'YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
