@@ -15,6 +15,7 @@ let g:solarized_termcolors=256
 set t_Co=256
 colorscheme gruvbox
 set background=dark
+set cursorline 
 
 set showmode                    " always show what mode we're currently editing in
 set tags=tags
