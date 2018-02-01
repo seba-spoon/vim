@@ -99,6 +99,9 @@ let g:netrw_list_hide.=',\(^\|\ss\)\zs\.\S\+'
 nnoremap ,desc :-1read $HOME/.vim/snippets/describe.js<CR>f'a
 nnoremap ,it :-1read $HOME/.vim/snippets/it.js<CR>f'a
 
+" JSX 
+let g:jsx_ext_required = 0
+
 " Overriding colorscheme
 highlight Search cterm=underline
 highlight Normal guibg=NONE ctermbg=NONE " For transparent background terminal
@@ -123,6 +126,10 @@ Plugin 'tpope/vim-fugitive'
 
 " Autocompletion
 Plugin 'Valloric/YouCompleteMe'
+
+" Javascript JSX
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
