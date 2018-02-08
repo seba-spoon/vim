@@ -82,6 +82,15 @@ syntax on
 map <Leader>t :!phpunit %<cr>
 au BufNewFile,BufRead *.sol set filetype=solidity
 
+" md-to-pdf (need md-to-pdf in /opt)
+function GeneratePdfFromMarkdown()
+    silent execute "!md-to-pdf -i % -o %:r.pdf"
+    redraw!
+endfunction
+command MarkdownPdf :call GeneratePdfFromMarkdown()
+
+
+
 " Custom commands 
 command SaveSess mksession! ~/.vim/session.vim
 command RestoreSess source ~/.vim/session.vim
