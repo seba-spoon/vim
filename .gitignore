@@ -4,3 +4,5 @@ cache/swap/*
 cache/backup/*
 !cache/swap
 !cache/backup
+bundle/*
+!bundle/Vundle.vim

@@ -139,6 +139,7 @@ Plugin 'Valloric/YouCompleteMe'
 " Javascript JSX
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'chemzqm/vim-jsx-improve'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
