@@ -84,6 +84,7 @@ au BufNewFile,BufRead *.sol set filetype=solidity
 
 " md-to-pdf (need md-to-pdf in /opt)
 function GeneratePdfFromMarkdown()
+    write
     silent execute "!md-to-pdf -i % -o %:r.pdf"
     redraw!
 endfunction
