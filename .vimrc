@@ -1,4 +1,5 @@
 set encoding=utf-8
+
 " System clipboard
 set clipboard=unnamedplus
 
@@ -15,11 +16,11 @@ let g:solarized_termcolors=256
 set t_Co=256
 colorscheme gruvbox
 set background=dark
+
 set cursorline 
 
 set showmode                    " always show what mode we're currently editing in
 set tags=tags
-
 
 set tabstop=4    " The width of a TAB is set to 4.
                     " Still it is a \t. It is just that
@@ -51,7 +52,6 @@ set mouse=a
 let mapleader = ","
 let g:mapleader = ","
 
-
 " Fast saves
 nmap <leader>w :w!<cr>
 
@@ -62,15 +62,14 @@ nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
 " Splits creation
-set splitbelow
-set splitright
+"set splitbelow
+"set splitright
 
 nmap <F7> :TagbarToggle<CR>
 
 nnoremap ; :
 "Show (partial) command in the status line
 set showcmd
-
 
 set backupdir=~/.vim/cache/backup/
 set directory=~/.vim/cache/swap/
@@ -82,7 +81,7 @@ syntax on
 map <Leader>t :!phpunit %<cr>
 au BufNewFile,BufRead *.sol set filetype=solidity
 
-" md-to-pdf (need md-to-pdf in /opt)
+" Generate PDF from markdown files (custom node app using md-to-pdf)
 function GeneratePdfFromMarkdown()
     write
     silent execute "!md-to-pdf -i % -o %:r.pdf"
@@ -90,9 +89,7 @@ function GeneratePdfFromMarkdown()
 endfunction
 command MarkdownPdf :call GeneratePdfFromMarkdown()
 
-
-
-" Custom commands 
+" Save / Restore session easily
 command SaveSess mksession! ~/.vim/session.vim
 command RestoreSess source ~/.vim/session.vim
 set sessionoptions-=options " do not save colorscheme etc
@@ -105,17 +102,13 @@ let g:netrw_liststyle=3
 let g:netrw_list_hide=netrw_gitignore#Hide()
 let g:netrw_list_hide.=',\(^\|\ss\)\zs\.\S\+'
 
-" Javascript snippets
-nnoremap ,desc :-1read $HOME/.vim/snippets/describe.js<CR>f'a
-nnoremap ,it :-1read $HOME/.vim/snippets/it.js<CR>f'a
-
 " JSX 
 let g:jsx_ext_required = 0
 
 " Overriding colorscheme
 highlight Search cterm=underline
-highlight Normal guibg=NONE ctermbg=NONE " For transparent background terminal
-
+" My preference for transparent background terminal
+highlight Normal guibg=NONE ctermbg=NONE 
 
 " Vundle plugin manager
 
@@ -125,11 +118,13 @@ filetype off                  " required
 "set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
+"alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+" nginx
+Plugin 'chr4/nginx.vim'
 
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
@@ -142,16 +137,13 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'chemzqm/vim-jsx-improve'
 
+" PHP / Html
+Bundle 'captbaritone/better-indent-support-for-php-with-html'
+" PHP / Blade
+Plugin 'jwalton512/vim-blade'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
-"" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
