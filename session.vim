@@ -3,119 +3,239 @@ if &cp | set nocp | endif
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/dev/ethereum/acc-smartcontract2
+silent tabonly
+cd ~/Dev/spooncast-server-api
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +1 test/test_AcjToken.js
-badd +1 contracts/AcjCrowdsale.sol
-badd +1 contracts/AcjToken.sol
-badd +1 test/helpers/accCrowdsale.js
-badd +1 test/mocks/AcjCrowdsaleImpl.sol
-badd +1 scripts/test.sh
-badd +1 test/test_AcjCrowdsale.js
-badd +1 ~/.vim/.vimrc
 argglobal
-silent! argdel *
-set stal=2
-edit contracts/AcjCrowdsale.sol
+%argdel
+edit users/models.py
 set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+wincmd _ | wincmd |
+vsplit
+2wincmd h
+wincmd w
+wincmd w
 set nosplitbelow
 set nosplitright
 wincmd t
-set winheight=1 winwidth=1
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+exe 'vert 1resize ' . ((&columns * 105 + 158) / 317)
+exe 'vert 2resize ' . ((&columns * 104 + 158) / 317)
+exe 'vert 3resize ' . ((&columns * 106 + 158) / 317)
 argglobal
-setlocal fdm=manual
+setlocal fdm=indent
 setlocal fde=0
 setlocal fmr={{{,}}}
 setlocal fdi=#
-setlocal fdl=0
+setlocal fdl=99
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 33) / 67)
+168
+normal! zo
+330
+normal! zo
+507
+normal! zo
+536
+normal! zo
+740
+normal! zo
+832
+normal! zo
+926
+normal! zo
+1151
+normal! zo
+1714
+normal! zo
+2097
+normal! zo
+2690
+normal! zo
+2749
+normal! zo
+2750
+normal! zo
+2767
+normal! zo
+2768
+normal! zo
+2775
+normal! zo
+let s:l = 2761 - ((15 * winheight(0) + 13) / 27)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
+2761
 normal! 0
-tabedit contracts/AcjToken.sol
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
+wincmd w
 argglobal
-setlocal fdm=manual
+if bufexists("users/views.py") | buffer users/views.py | else | edit users/views.py | endif
+setlocal fdm=indent
 setlocal fde=0
 setlocal fmr={{{,}}}
 setlocal fdi=#
-setlocal fdl=0
+setlocal fdl=99
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 33) / 67)
+513
+normal! zo
+513
+normal! zo
+513
+normal! zo
+649
+normal! zo
+685
+normal! zo
+689
+normal! zo
+700
+normal! zo
+1166
+normal! zo
+1359
+normal! zo
+1386
+normal! zo
+1397
+normal! zo
+1399
+normal! zo
+1401
+normal! zo
+1401
+normal! zo
+1401
+normal! zo
+1401
+normal! zo
+1401
+normal! zo
+2794
+normal! zo
+2818
+normal! zo
+2963
+normal! zo
+let s:l = 1400 - ((12 * winheight(0) + 13) / 27)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
-tabedit test/test_AcjToken.js
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
+1400
+normal! 061|
+wincmd w
 argglobal
-setlocal fdm=manual
+if bufexists("users/models.py") | buffer users/models.py | else | edit users/models.py | endif
+setlocal fdm=indent
 setlocal fde=0
 setlocal fmr={{{,}}}
 setlocal fdi=#
-setlocal fdl=0
+setlocal fdl=99
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 33) / 67)
+127
+normal! zo
+168
+normal! zo
+330
+normal! zo
+388
+normal! zo
+399
+normal! zo
+403
+normal! zo
+482
+normal! zo
+507
+normal! zo
+536
+normal! zo
+630
+normal! zo
+740
+normal! zo
+832
+normal! zo
+926
+normal! zo
+1151
+normal! zo
+1714
+normal! zo
+2097
+normal! zo
+2288
+normal! zo
+2290
+normal! zo
+2690
+normal! zo
+2749
+normal! zo
+2750
+normal! zo
+2767
+normal! zo
+2768
+normal! zo
+2775
+normal! zo
+2790
+normal! zo
+2804
+normal! zo
+2824
+normal! zo
+2837
+normal! zo
+2881
+normal! zo
+2947
+normal! zo
+let s:l = 2782 - ((13 * winheight(0) + 13) / 27)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
+2782
 normal! 0
-tabedit test/test_AcjCrowdsale.js
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=manual
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 33) / 67)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-1
-normal! 0
+wincmd w
+3wincmd w
+exe 'vert 1resize ' . ((&columns * 105 + 158) / 317)
+exe 'vert 2resize ' . ((&columns * 104 + 158) / 317)
+exe 'vert 3resize ' . ((&columns * 106 + 158) / 317)
 tabnext 1
-set stal=1
-if exists('s:wipebuf')
+badd +1407 users/views.py
+badd +863 users/models.py
+badd +22 SpoonCast/mixins.py
+badd +2139 billings/models.py
+badd +373 users/tasks.py
+badd +659 SpoonCast/push.py
+badd +44 casts/models.py
+badd +1 users
+badd +18 SpoonCast/db.py
+badd +36 SpoonCast/mongo.py
+badd +1 SpoonCast/tasks.py
+if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
 unlet! s:wipebuf
-set winheight=1 winwidth=20 shortmess=filnxtToO
+set winheight=1 winwidth=20 shortmess=filnxtToOSc
+set winminheight=1 winminwidth=1
 let s:sx = expand("<sfile>:p:r")."x.vim"
-if file_readable(s:sx)
+if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &so = s:so_save | let &siso = s:siso_save
